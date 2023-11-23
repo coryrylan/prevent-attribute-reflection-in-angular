@@ -3,6 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-switch',
+  standalone: true,
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.css'],
   providers: [
@@ -15,7 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class SwitchComponent implements ControlValueAccessor {
   @HostBinding('attr.id')
-  externalId = '';
+  externalId: string | NonNullableFormBuilder = '';
 
   @Input()
   set id(value: string) {
