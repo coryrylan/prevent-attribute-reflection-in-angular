@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import 'zone.js';
 import { FormsModule, FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { SwitchComponent } from './switch/switch.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, SwitchComponent],
   template: `
     <h1>Angular Custom Form Controls with Reactive Forms and NgModel</h1>
 
@@ -30,7 +31,7 @@ import { FormsModule, FormGroup, FormBuilder, ReactiveFormsModule } from '@angul
   `,
 })
 export class App {
-  myForm: FormGroup
+  myForm!: FormGroup
   value = false;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -42,8 +43,8 @@ export class App {
   }
 
   submit() {
-    alert(`Value: ${this.myForm.controls.mySwitch.value}`);
-    console.log(`Value: ${this.myForm.controls.mySwitch.value}`);
+    alert(`Value: ${this.myForm.controls['mySwitch'].value}`);
+    console.log(`Value: ${this.myForm.controls['mySwitch'].value}`);
   }
 }
 

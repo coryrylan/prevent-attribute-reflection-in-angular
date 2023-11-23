@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef, HostBinding } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor,  NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-switch',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.css'],
   providers: [
@@ -16,7 +18,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class SwitchComponent implements ControlValueAccessor {
   @HostBinding('attr.id')
-  externalId: string | NonNullableFormBuilder = '';
+  externalId: string | null = '';
 
   @Input()
   set id(value: string) {
@@ -46,17 +48,17 @@ export class SwitchComponent implements ControlValueAccessor {
 
   constructor() {}
 
-  registerOnChange(fn) {
+  registerOnChange(fn: () => void) {
     this.onChange = fn;
   }
 
-  writeValue(value) {
+  writeValue(value: any) {
     if (value) {
       this.value = value;
     }
   }
 
-  registerOnTouched(fn) {
+  registerOnTouched(fn: () => void) {
     this.onTouched = fn;
   }
 
