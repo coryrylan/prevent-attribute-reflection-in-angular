@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import 'zone.js';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
